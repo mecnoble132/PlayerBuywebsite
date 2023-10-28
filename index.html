@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Buy | Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/playerbuyfavicon.png">
+</head>
+<body>
+    <header>
+        <img src="playerbuylogo.png" alt="logo">
+        <h1>Player Buy</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="cart.html">Cart <span class="cartQuantity"></span></a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="players-container">
+            <div class="section-heading">
+                <h2>Players</h2>
+            </div>
+            <div class="actual-players-container">
+
+            </div>
+            
+        </div>
+        <div class="cart-container">
+            <div class="section-heading cart-heading">
+             <h2>Cart</h2>
+            </div>
+            <div class="actual-cart-container">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="custom-alert" id="customAlert">
+        <div class="alert-header">Alert!<span class="close-btn" onclick="closeAlert()">&times;</span></div>
+        <div class="alert-content">
+            <p id="alertMessage"></p>
+        </div>
+    </div>
+    
+    <script src="data/players.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
