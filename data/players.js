@@ -75,7 +75,7 @@ let players = [
     {
         name: 'Keylor Navas',
         image: 'images/navas.jpg',
-        position: 'Goal Keeper',
+        position: 'Goalkeeper',
         age:'36',
         valueEuro:'4',
         id:'navas'
@@ -83,7 +83,7 @@ let players = [
     {
         name: 'Manuel Neuer',
         image: 'images/neuer.jpg',
-        position: 'Goal Keeper',
+        position: 'Goalkeeper',
         age:'37',
         valueEuro:'7',
         id:'neuer'

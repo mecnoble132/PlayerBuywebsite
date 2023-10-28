@@ -15,7 +15,7 @@
             <a href="#">Home</a>
             <a href="#">About</a>
             <a href="#">Contact</a>
-            <a href="cart.html">Cart <span class="cartQuantity"></span></a>
+            <a href="cart.html">Cart <span class="cart-quantity"></span></a>
         </nav>
     </header>
 
@@ -24,6 +24,18 @@
             <div class="section-heading">
                 <h2>Players</h2>
             </div>
+            <div class="filter-container">
+                <label for="positionFilter">Filter by Position:</label>
+                <select id="positionFilter" onchange="filterPlayers()">
+                    <option value="all">All Positions</option>
+                    <option value="forward">Forward</option>
+                    <option value="midfielder">Midfielder</option>
+                    <option value="defender">Defender</option>
+                    <option value="goalkeeper">Goalkeeper</option>
+                </select>
+            </div>
+            
+            
             <div class="actual-players-container">
 
             </div>

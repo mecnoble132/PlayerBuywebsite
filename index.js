@@ -18,6 +18,37 @@ players.forEach(player => {
 let playersContainer = document.querySelector('.actual-players-container')
 playersContainer.innerHTML = generatePlayerHTML
 
+function filterPlayers() {
+    let selectedPosition = document.getElementById('positionFilter').value;
+
+    let filteredPlayers = players;
+
+    if (selectedPosition !== 'all') {
+        filteredPlayers = players.filter(player => player.position.toLowerCase() === selectedPosition);
+    }
+
+    let generatePlayerHTML = '';
+    filteredPlayers.forEach(player => {
+        let playersHTML = `
+        <div class="player-card">
+            <div class="player-image">
+                <img src="${player.image}" alt="${player.id}">
+            </div>
+            <div class="player-info">
+                <h4 class="player-name">${player.name}</h4>
+                <p class="player-price">${player.valueEuro} euros</p>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('${player.id}')">Add to cart</button>
+        </div>        
+        `;
+        generatePlayerHTML += playersHTML;
+    });
+
+    let playersContainer = document.querySelector('.actual-players-container');
+    playersContainer.innerHTML = generatePlayerHTML;
+}
+
+
 let cart = [];
 
 function updateCartDisplay() {
@@ -40,7 +71,7 @@ function updateCartDisplay() {
     cartContainer.innerHTML = generateCartHTML;
 }
 function updateCartQuantity(){
-    let cartQuantityDisplay = document.querySelector('.cartQuantity')
+    let cartQuantityDisplay = document.querySelector('.cart-quantity')
     let cartQuantity = cart.length;
     cartQuantityDisplay.innerHTML = `(${cartQuantity})`
 }
@@ -52,12 +83,22 @@ function addToCart(playerId) {
             showAlert(`${playerToAdd.name} is already in your cart.`);
         } else {
             cart.unshift(playerToAdd);
+            updateCartQuantity();
+            increaseCartQuantitySize();
             updateCartDisplay();
             saveCartToLocalStorage(); // Save cart to local storage
         }
     };
-    updateCartQuantity();
 }
+
+function increaseCartQuantitySize() {
+    let cartQuantityDisplay = document.querySelector('.cart-quantity');
+    cartQuantityDisplay.style.fontSize = '20px'; // Adjust the desired size
+    setTimeout(() => {
+        cartQuantityDisplay.style.fontSize = '16px'; // Reset to original size after a short delay
+    }, 500); // Adjust the duration of the animation as needed
+}
+
 
 function removeFromCart(playerId) { 
     let playerIndex = cart.findIndex(player => player.id === playerId);
@@ -67,6 +108,7 @@ function removeFromCart(playerId) {
         saveCartToLocalStorage(); // Save cart to local storage
     }
     updateCartQuantity()
+    increaseCartQuantitySize()
 }
 
 

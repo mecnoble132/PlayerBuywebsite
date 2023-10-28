@@ -90,6 +90,11 @@ header img{
     border-radius: 10px;
     margin-bottom: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, opacity 0.3s;
+}
+.player-card:hover {
+    transform: scale(1.05);
+    opacity: 0.9; 
 }
 .player-info{
     text-align: center;
@@ -111,9 +116,11 @@ header img{
     border-radius: 10px;
     color: white;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 .add-to-cart:hover{
     background-color: #141b3b;
+    transform: scale(1.05);
 }
 
 .cart-player{
@@ -123,6 +130,7 @@ header img{
     justify-content: space-between;
     padding-right: 50px;
     border-radius: 10px;
+    max-width: 265.25px;
 }
 .cart-player img{
     width: 100px;
@@ -153,6 +161,11 @@ header img{
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 20000;
+    animation: fadeInOut 0.5s;
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 .alert-header{
     background-color: #1e2750;
@@ -178,4 +191,20 @@ header img{
 
 #alertMessage {
     margin: 0;
+}
+
+.cart-quantity {
+    font-size: 16px; /* Adjust as needed */
+    transition: font-size 0.3s ease; /* Add a transition for smooth animation */
+}
+
+.filter-container{
+    margin: 30px;
+}
+.filter-container select{
+    background-color: #1e2750;
+    outline: none;
+    border: none;
+    padding: 5px;
+    color: white;
 }
