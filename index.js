@@ -142,3 +142,31 @@ function initCartFromLocalStorage() {
 // Call this function when your page loads
 initCartFromLocalStorage();
 updateCartQuantity();
+
+
+function searchPlayers() {
+    let searchQuery = document.getElementById('playerSearch').value.toLowerCase();
+
+    let filteredPlayers = players.filter(player => player.name.toLowerCase().includes(searchQuery));
+
+    let generatePlayerHTML = '';
+    filteredPlayers.forEach(player => {
+        let playersHTML = `
+            <div class="player-card">
+                <div class="player-image">
+                    <img src="${player.image}" alt="${player.id}">
+                </div>
+                <div class="player-info">
+                    <h4 class="player-name">${player.name}</h4>
+                    <p class="player-price">${player.valueEuro} euros</p>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('${player.id}')">Add to cart</button>
+            </div>
+        `;
+
+        generatePlayerHTML += playersHTML;
+    });
+
+    let playersContainer = document.querySelector('.actual-players-container');
+    playersContainer.innerHTML = generatePlayerHTML;
+}
